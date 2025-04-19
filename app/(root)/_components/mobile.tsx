@@ -24,7 +24,7 @@ function Mobile() {
     <Separator className="my-3"/>
     <div className="flex flex-col space-y-3">
         {navLinks.map(nav=>(
-            <Link href={nav.route} key={nav.route} className={cn('hover:bg-blue-400/20 py-2 px-3 cursor-pointer rounded-sm transition-colors flex items-center gap-2')}>
+            <Link href={nav.route} key={nav.route} className={cn('hover:bg-blue-400/20 py-2 px-3 cursor-pointer rounded-sm transition-colors flex items-center gap-2',pathname===nav.route&&'text-blue-400')}>
                 <nav.icon className="w-5 h-5" />
                 {nav.name}
             </Link>

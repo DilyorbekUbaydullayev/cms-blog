@@ -2,7 +2,6 @@ import { Badge } from "@/components/ui/badge";
 import {
   Drawer,
   DrawerContent,
-  DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
