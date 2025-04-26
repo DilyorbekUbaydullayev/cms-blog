@@ -16,7 +16,7 @@ function Navbar() {
       <div className="container max-w-6xl mx-auto h-[10vh] w-full flex items-center justify-between">
         {/* logo */}
         <Link href={'/'}>
-        <h1 className="text-4xl font-crete">Sammi</h1>
+        <h1 className="text-4xl font-crete">Codely</h1>
         </Link>
         {/* Nav links */}
         <div className="gap-2 hidden md:flex">
