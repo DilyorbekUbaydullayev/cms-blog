@@ -1,13 +1,19 @@
-import { Badge } from "@/components/ui/badge";
+"use client"
+
+import React from 'react'
 import {
   Drawer,
-  DrawerContent,
-  DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/drawer";
-import { Input } from "@/components/ui/input";
-import { popularCategories, popularTags } from "@/constants";
-import { Search } from "lucide-react";
+  DrawerContent,
+  DrawerClose,
+  DrawerHeader,
+  DrawerTitle,
+} from '@/components/ui/drawer'
+import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { popularCategories, popularTags } from '@/constants'
+import { Minus, Search } from 'lucide-react'
+import Link from 'next/link'
 
 function GlobalSearch() {
   return (
@@ -18,38 +24,63 @@ function GlobalSearch() {
           <Search className="w-4 h-4" />
         </div>
       </DrawerTrigger>
+
       <DrawerContent>
-        <DrawerTitle>
-          <div className="container max-w-6xl max-auto py-12">
-            <Input
-              className="bg-secondary"
-              placeholder="Type to seach blog..."
-            />
-            <div className="flex flex-col space-y-2 mt-4">
-              <p className="font-crete text-2xl">See posts by categories</p>
-              <div className="flex flex-wrap gap-2">
-                {popularCategories.map((item) => (
-                  <Badge key={item.slug} variant={"secondary"}>
-                    {item.name}
-                  </Badge>
-                ))}
-              </div>
+        <DrawerHeader>
+          <DrawerTitle>Search Posts</DrawerTitle>
+          <DrawerClose />
+        </DrawerHeader>
+
+        <div className="container max-w-6xl mx-auto py-12">
+          <Input
+            className="bg-secondary"
+            placeholder="Type to search blog..."
+          />
+
+          <div className="flex flex-col space-y-2 mt-4">
+            <div className="flex items-center gap-2">
+              <p className="font-creteRound text-2xl">
+                See posts by categories
+              </p>
+              <Minus />
+
+              <Link href="/categories" >
+                <DrawerClose className="cursor-pointer text-blue-500 underline hover:opacity-90">
+                  See all
+                </DrawerClose>
+              </Link>
             </div>
-            <div className="flex flex-col space-y-2 mt-4">
-              <p className="font-crete text-2xl">See posts by tags</p>
-              <div className="flex flex-wrap gap-2">
-                {popularTags.map((item) => (
-                  <Badge key={item.slug} variant={"secondary"}>
-                    {item.name}
-                  </Badge>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2">
+              {popularCategories.map(item => (
+                <Badge key={item.slug} variant="secondary" className='cursor-pointer'>
+                  {item.name}
+                </Badge>
+              ))}
             </div>
           </div>
-        </DrawerTitle>
+
+          <div className="flex flex-col space-y-2 mt-4">
+            <div className="flex items-center gap-2">
+              <p className="font-creteRound text-2xl">See posts by tags</p>
+              <Minus />
+              <Link href="/tags" >
+                <DrawerClose className="cursor-pointer text-blue-500 underline hover:opacity-90">
+                  See all
+                </DrawerClose>
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {popularTags.map(item => (
+                <Badge key={item.slug} variant="secondary" className='cursor-pointer'>
+                  {item.name}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        </div>
       </DrawerContent>
     </Drawer>
-  );
+  )
 }
 
-export default GlobalSearch;
+export default GlobalSearch

@@ -5,12 +5,23 @@ export interface ChildProps {
 export interface IBlog {
     title:string
     description:string
-    author:string
-    date:string
-    image:string
-    tags:string[]
+    author:IAuthor
+    image:{url:string}
+    tag:ICategoryAndtags
+    createdAt:string
+    content:{html:string}
+    slug:string
+    category:ICategoryAndtags
 }
 export interface IAuthor {
 	name: string
-	image: string
+	image: {url:string}
+    bio:string
+    blog:IBlog[]
+    id:string
+}
+
+export interface ICategoryAndtags {
+    name:string
+    slug:string
 }
