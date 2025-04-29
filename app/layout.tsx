@@ -5,6 +5,7 @@ import { ChildProps } from "@/types";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import Navbar from "./(root)/_components/navbar";
 import Footer from "./(root)/_components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const creteRound = Crete_Round({
   weight: ["400"],
@@ -37,6 +38,7 @@ function RootLayout({ children }: ChildProps) {
         >
           <Navbar />
           <div className="container">{children}</div>
+          <Toaster position="top-center"/>
           <Footer />
         </ThemeProvider>
       </body>
