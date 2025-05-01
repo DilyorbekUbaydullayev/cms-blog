@@ -2,21 +2,23 @@ import BlogCard from '@/components/cards/blog'
 import { getBlogsByCategory } from '@/service/category.service'
 import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata(
+    props: {
+      params: Promise<{ slug: string }>;
+    }
+) {
+    const params = await props.params;
     const category = await getBlogsByCategory(params.slug)
 
-  return {
-    title:category.name,
-    
-  };
+    return {
+      title:category.name,
+      
+    };
 }
-async function Page({ params }: { params: { slug: string } }) {
+async function Page(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
     const category = await getBlogsByCategory(params.slug)
-    
+
     return (
         <div className='max-w-6xl mx-auto'>
             <div className='relative min-h-[30vh] flex items-center justify-end flex-col'>

@@ -2,22 +2,24 @@ import BlogCard from '@/components/cards/blog'
 import { getBlogsByTag } from '@/service/tag.service'
 import { Dot, Home } from 'lucide-react'
 import Link from 'next/link'
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
-	const tag = await getBlogsByTag(params.slug)
+export async function generateMetadata(
+    props: {
+      params: Promise<{ slug: string }>;
+    }
+) {
+    const params = await props.params;
+    const tag = await getBlogsByTag(params.slug)
 
-  return {
-	title:tag.name,
-	
-  };
+    return {
+      title:tag.name,
+      
+    };
 }
-async function Page({ params }: { params: { slug: string } }) {
-	const tag = await getBlogsByTag(params.slug)
-    
-	return (
+async function Page(props: { params: Promise<{ slug: string }> }) {
+    const params = await props.params;
+    const tag = await getBlogsByTag(params.slug)
+
+    return (
 		<div className='max-w-6xl mx-auto'>
 			<div className='relative min-h-[30vh] flex items-center justify-end flex-col'>
 				<h2 className='text-center text-4xl section-title font-creteRound mt-2'>
