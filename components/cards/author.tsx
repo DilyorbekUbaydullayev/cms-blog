@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 function AuthorCard(author: IAuthor) {
 	return (
-		<Link href={`/author/${author.id}`} className='flex flex-col space-y-2 w-52 text-center'>
+		<Link href={`/author/${author.slug}`} className='flex flex-col space-y-2 w-52 text-center'>
 			<div className='w-full h-52 relative'>
 				<Image
 					src={author.image.url}

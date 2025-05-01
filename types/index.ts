@@ -19,9 +19,15 @@ export interface IAuthor {
     bio:string
     blog:IBlog[]
     id:string
+    slug:string
 }
 
 export interface ICategoryAndtags {
     name:string
     slug:string
+}
+
+export interface IArchiveBlog{
+    year:string
+    blogs:IBlog[]
 }
