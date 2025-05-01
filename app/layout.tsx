@@ -20,11 +20,13 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://codely.ac'),
+  metadataBase: new URL('https://codely-woad.vercel.app'),
   title: 'Codely Programming Articles',
   description:
     'Programming news, tips, and tutorials on React Suspense, scalable APIs, full-stack development, and in-browser AI chatbots. Find guides and best practices to level up your code!',
- 
+ authors:[
+  { name: 'Ubaydullyev Dilyorbek',    url: 'https://codely-woad.vercel.app'     },
+],
   icons: {
     icon: '/favicon.png',
   },
@@ -48,14 +50,14 @@ export const metadata: Metadata = {
     description:
       'Programming news, tips, and tutorials on React Suspense, scalable APIs, full-stack development, and in-browser AI chatbots. Find guides and best practices to level up your code!',
     type: 'website',
-    url: 'https://codely.ac',
+    url: 'https://codely-woad.vercel.app',
     locale: 'en_EN',
     images: [
-      ''
+      'https://codely-woad.vercel.app/_next/image?url=https%3A%2F%2Fus-west-2.graphassets.com%2Fcm9w695ob08zv07mx70ed4trr%2Fcma4v3ya9b19t07n37fcf8aq1&w=2048&q=75'
     ],
     siteName: 'Codely',
     countryName: 'Uzbekistan',
-    emails: ['info@codely.ac'],
+   
   },
 }
 
