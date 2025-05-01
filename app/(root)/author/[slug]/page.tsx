@@ -2,14 +2,8 @@ import BlogCard from '@/components/cards/blog'
 import { getDetaileddAuthor } from '@/service/author.service'
 import Image from 'next/image'
 
-async function Page({
-	params,
-  }: {
-	params: { id: string }
-	searchParams: Record<string, string | string[] | undefined>
-  }) {
-	const author = await getDetaileddAuthor(params.id)
-
+async function Page({ params }: { params: { slug: string } }) {
+	const author = await getDetaileddAuthor(params.slug)
 	return (
 		
 		<div className='max-w-6xl mx-auto pt-36'>
@@ -27,7 +21,7 @@ async function Page({
 						Published posts
 					</p>
 					<h2 className='text-3xl font-creteRound'>{author.name}</h2>
-					<p className='text-muted-foreground max-w-xl'>
+					<p className='line-clamp-2 text-muted-foreground max-w-xl'>
 						{author.bio}
 					</p>
 				</div>
