@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { content } from "@/constants";
 import { getReadingTime } from "@/lib/utils";
 import { getDetailedBlog } from "@/service/blog.service";
 import { format } from "date-fns";
@@ -18,13 +17,13 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
   const blog = await getDetailedBlog(params.slug);
-
   return {
     title: blog.title,
     description: blog.description,
@@ -34,7 +33,8 @@ export async function generateMetadata({
   };
 }
 
-async function SlugPage({ params }: { params: { slug: string } }) {
+async function SlugPage(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const blog = await getDetailedBlog(params.slug);
   return (
     <div className="pt-[15vh] max-w-5xl mx-auto">
