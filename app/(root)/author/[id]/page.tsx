@@ -6,10 +6,11 @@ async function Page({ params }: { params: { id: string } }) {
 	const author = await getDetaileddAuthor(params.id)
 
 	return (
+		
 		<div className='max-w-6xl mx-auto pt-36'>
 			<div className='flex mt-6 gap-6 items-center max-md:flex-col'>
 				<Image
-					src={author.image.url}
+					src={author.image?.url}
 					alt='author'
 					width='200'
 					height='200'
@@ -21,7 +22,7 @@ async function Page({ params }: { params: { id: string } }) {
 						Published posts
 					</p>
 					<h2 className='text-3xl font-creteRound'>{author.name}</h2>
-					<p className='line-clamp-2 text-muted-foreground max-w-xl'>
+					<p className='text-muted-foreground max-w-xl'>
 						{author.bio}
 					</p>
 				</div>
