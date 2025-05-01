@@ -4,7 +4,6 @@ import Image from 'next/image'
 
 async function Page({
 	params,
-	searchParams,
   }: {
 	params: { id: string }
 	searchParams: Record<string, string | string[] | undefined>
