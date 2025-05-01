@@ -11,7 +11,7 @@ export function getReadingTime(content: string) {
 	let images = 0
 	const regex = /\w/
 
-	let words = content.split(' ').filter(word => {
+	const words = content.split(' ').filter(word => {
 		if (word.includes('<img')) {
 			images += 1
 		}
