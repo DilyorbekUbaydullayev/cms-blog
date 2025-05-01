@@ -2,7 +2,13 @@ import BlogCard from '@/components/cards/blog'
 import { getDetaileddAuthor } from '@/service/author.service'
 import Image from 'next/image'
 
-async function Page({ params }: { params: { id: string } }) {
+async function Page({
+	params,
+	searchParams,
+  }: {
+	params: { id: string }
+	searchParams: Record<string, string | string[] | undefined>
+  }) {
 	const author = await getDetaileddAuthor(params.id)
 
 	return (
