@@ -4,6 +4,21 @@ import Image from 'next/image'
 type Props = {
 	params: Promise<{ slug: string }>;
   };
+  export async function generateMetadata(
+	props: {
+	  params: Promise<{ slug: string }>;
+	}
+  ) {
+	const params = await props.params;
+	const author = await getDetaileddAuthor(params.slug)
+	return {
+	  title: author.name,
+	  description: author.bio,
+	  openGraph: {
+		images: author.image.url,
+	  },
+	};
+  }
 async function Page({ params }: Props) {
 	const { slug } = await params;                      
 	const author = await getDetaileddAuthor(slug)
